@@ -4,15 +4,18 @@ const app = require("express")();
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const PORT = process.env.PORT || 3000;
+const path = require("path");
+const ANGULAR_APP_PATH = "dist/src/";
 
-app.use(express.static("public"));
+app.use(express.static(ANGULAR_APP_PATH));
 
 server.listen(PORT, () => {
   console.log(`Server Running on PORT: ${PORT}`);
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
+  var options = { root: path.join(__dirname, ANGULAR_APP_PATH) };
+  res.sendFile("index.html", options);
 });
 
 io.on("connection", (socket) => {

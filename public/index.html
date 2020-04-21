@@ -13,6 +13,14 @@
     Please check your console log
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="./main.js"></script>
+    <!-- <script src="./main.js"></script> -->
+    <script>
+      const socket = io();
+
+      socket.on("message", (data) => {
+        console.log(`got your data: ${JSON.stringify(data)}`);
+        socket.emit("reply-msg", { client: "I'm fine, how are you?" });
+      });
+    </script>
   </body>
 </html>

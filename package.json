@@ -1,0 +1,30 @@
+{
+  "name": "chat-place",
+  "version": "1.0.0",
+  "description": "A Real Time Web App made using Node, Express and Socket.io to chat with others",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js --exec babel-node -e js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RahulPandya25/Chat-Place.git"
+  },
+  "author": "Rahul Pandya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RahulPandya25/Chat-Place/issues"
+  },
+  "homepage": "https://github.com/RahulPandya25/Chat-Place#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}

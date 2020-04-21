@@ -1,5 +1,4 @@
-// const socket = io.connect("http://localhost:3000");
-const socket = io.connect("https://my-chat-place.herokuapp.com");
+const socket = io.connect("http://localhost:3000");
 
 socket.on("message", (data) => {
   console.log(`got your data: ${JSON.stringify(data)}`);

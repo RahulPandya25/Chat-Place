@@ -1,4 +1,4 @@
-const socket = io("http://localhost/");
+const socket = io();
 
 socket.on("message", (data) => {
   console.log(`got your data: ${JSON.stringify(data)}`);

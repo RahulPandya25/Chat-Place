@@ -5,7 +5,7 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const PORT = process.env.PORT || 3000;
 const path = require("path");
-const ANGULAR_APP_PATH = "dist/src/";
+const ANGULAR_APP_PATH = "src/";
 
 app.use(express.static(ANGULAR_APP_PATH));
 

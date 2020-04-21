@@ -1,4 +1,4 @@
-// const io = require("socket.io-client");
+// const socket = io.connect("http://localhost:3000");
 const socket = io.connect("https://my-chat-place.herokuapp.com");
 
 socket.on("message", (data) => {

@@ -14,6 +14,6 @@ function sendMessage() {
 
   if (user !== "" && message !== "") {
     socket.emit("broadcast", { user: user, message: message });
-    $(".messages").append(`You: ${data.message}`);
+    $(".messages").append(`You: ${message}`);
   }
 }

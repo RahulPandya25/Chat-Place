@@ -3,7 +3,7 @@ const socket = io();
 socket.on("new message", (data) => {
   console.log(`new message from: ${data.user}, message: ${data.message}`);
 
-  $(".messages").append(`${data.user}: ${data.message}`);
+  $(".messages").append(`<br/>${data.user}: ${data.message}`);
 });
 
 function sendMessage() {
@@ -14,6 +14,6 @@ function sendMessage() {
 
   if (user !== "" && message !== "") {
     socket.emit("broadcast", { user: user, message: message });
-    $(".messages").append(`You: ${message}`);
+    $(".messages").append(`<br/>You: ${message}`);
   }
 }

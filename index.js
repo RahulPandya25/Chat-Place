@@ -21,10 +21,16 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
   // new user connects
   userService.incUserCount();
-  console.log(`user connected, total users: ${userService.getUserCount()}`);
 
+  // broadcast message
   socket.on("broadcast", (data) => {
-    console.log(data);
-    socket.broadcast.emit("new message", data);
+    if (data.type === "NEW MESSAGE") {
+      socket.broadcast.emit("new message", data);
+      socket.emit("user list", userService.getUserList());
+    } else if (data.type === "NEW CONNECTION") {
+      console.log(`new user: ${data.user}`);
+      userService.addUser(data.user);
+      socket.broadcast.emit("new connection", data);
+    }
   });
 });

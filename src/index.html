@@ -3,17 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Socket IO -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <script src="main.js"></script>
+    <link rel="stylesheet" href="main.css" />
     <title>Chat-Place</title>
   </head>
-  <body>
-    User:
-    <input type="text" name="user" id="user" /><br />
-    message:
-    <input type="text" name="message" id="message" /><br />
-    <button onclick="sendMessage()">Send Message</button>
-    <div class="messages"></div>
+  <body onload="openModal()">
+    <!-- user modal -->
+    <div id="user-modal" class="modal">
+      <div class="modal-content">
+        <label for="user">User: </label>
+        <input type="text" name="user" id="user" /><br />
+        <p class="no-user-error">Please enter a user name</p>
+        <p class="user-taken-error">
+          User name already taken, please try another one
+        </p>
+        <span onclick="closeModal()" class="close">&times;</span>
+      </div>
+    </div>
+
+    <!-- main content -->
+    <div class="main-content">
+      message:
+      <input type="text" name="message" id="message" /><br />
+      <button onclick="sendMessage()">Send Message</button>
+      <div class="messages"></div>
+    </div>
   </body>
 </html>

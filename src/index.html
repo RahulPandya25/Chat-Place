@@ -3,18 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="main.js"></script>
     <title>Chat-Place</title>
   </head>
   <body>
-    index.html
-
-    <br />
-    Please check your console log!
-    <br />
-    testing my app deployed on heroku
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
-    <script src="main.js"></script>
+    User:
+    <input type="text" name="user" id="user" /><br />
+    message:
+    <input type="text" name="message" id="message" /><br />
+    <button onclick="sendMessage()">Send Message</button>
   </body>
 </html>

@@ -1,6 +1,16 @@
 const socket = io();
 
-socket.on("message", (data) => {
-  console.log(`got your data: ${JSON.stringify(data)}`);
-  socket.emit("reply-msg", { client: "I'm fine, how are you?" });
+socket.on("new message", (data) => {
+  console.log(`new message from: ${data.user}, message: ${data.message}`);
 });
+
+function sendMessage() {
+  var user = $("#user").val();
+  var message = $("#message").val();
+
+  console.log({ user, message });
+
+  if (user !== "" && message !== "") {
+    socket.emit("broadcast", { user: user, message: message });
+  }
+}

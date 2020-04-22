@@ -5,11 +5,12 @@ const io = require("socket.io")(server);
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 const ANGULAR_APP_PATH = "src/";
+const userService = require("./user-service");
 
 app.use(express.static(ANGULAR_APP_PATH));
 
 server.listen(PORT, () => {
-  console.log(`Server Running on PORT: ${PORT}`);
+  console.log(`Server Started and Running on PORT: ${PORT}`);
 });
 
 app.get("/", (req, res) => {
@@ -18,9 +19,12 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  console.log(`user connected`);
-  socket.emit("message", { server: "how are you?" });
-  socket.on("reply-msg", (data) => {
-    console.log(`got your data: ${JSON.stringify(data)}`);
+  // new user connects
+  userService.incUserCount();
+  console.log(`user connected, total users: ${userService.getUserCount()}`);
+
+  socket.on("broadcast", (data) => {
+    console.log(data);
+    socket.broadcast.emit("new message", data);
   });
 });

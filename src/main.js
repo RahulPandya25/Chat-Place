@@ -14,13 +14,13 @@ let socket = io();
 let user = "";
 
 socket.on("new message", (data) => {
-  $(".messages").append(`<br/>${data.user}: ${data.message}`);
+  $(".conversation").append(`<br/>${data.user}: ${data.message}`);
 });
 socket.on("new connection", (data) => {
-  $(".messages").append(`<br/>${data.user} joined`);
+  $(".conversation").append(`<br/>${data.user} joined`);
 });
 socket.on("user disconnected", (data) => {
-  $(".messages").append(`<br/>${data.user} disconnected`);
+  $(".conversation").append(`<br/>${data.user} disconnected`);
 });
 socket.on("user list", (data) => {
   console.log(data);
@@ -60,6 +60,6 @@ function sendMessage() {
       type: "NEW MESSAGE",
     });
     $("#message").val("");
-    $(".messages").append(`<br/>You: ${message}`);
+    $(".conversation").append(`<br/>You: ${message}`);
   }
 }

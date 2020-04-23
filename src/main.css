@@ -157,6 +157,10 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 
+.main-content {
+  background-color: #9acb34;
+}
+
 @-webkit-keyframes pulse {
   0% {
     background-color: var(--teal-accent);

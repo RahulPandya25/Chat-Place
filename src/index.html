@@ -13,7 +13,7 @@
   </head>
   <body onload="openModal()">
     <!-- user modal -->
-    <div id="user-modal" class="modal">
+    <!-- <div id="user-modal" class="modal">
       <div class="hologram">&ldquo;CHAT ROOM&rdquo;</div>
       <div class="modal-content">
         <label for="user">User Name</label>
@@ -38,14 +38,36 @@
           with <q>❤️</q>
         </p>
       </div>
-    </div>
+    </div> -->
 
     <!-- main content -->
     <div class="main-content">
-      message:
-      <input type="text" name="message" id="message" /><br />
-      <button onclick="sendMessage()">Send Message</button>
-      <div class="messages"></div>
+      <div class="conversation">
+        <div class="message new-message">
+          <p class="sender">Rahul</p>
+          <p class="sender-message">Hey there</p>
+        </div>
+        <div class="message my-message">
+          <p class="sender-message">Hey there</p>
+        </div>
+        <div class="new-user-joined">
+          <p>Billu joined</p>
+        </div>
+        <div class="message my-message">
+          <p class="sender-message">yo Billu</p>
+        </div>
+      </div>
+
+      <div class="send-message">
+        message:
+        <input
+          type="text"
+          name="message"
+          id="message"
+          placeholder="Type a message..."
+        /><br />
+        <button onclick="sendMessage()">Send Message</button>
+      </div>
     </div>
   </body>
 </html>

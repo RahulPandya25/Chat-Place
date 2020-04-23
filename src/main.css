@@ -74,8 +74,8 @@ body::-webkit-scrollbar-thumb {
           align-items: center;
   background: linear-gradient(-45deg, #c6ffdd, #fbd786, #f7797d);
   background-size: 200% 100%;
-  -webkit-animation: gradient 10s ease alternate infinite;
-          animation: gradient 10s ease alternate infinite;
+  -webkit-animation: gradient 5s ease alternate infinite;
+          animation: gradient 5s ease alternate infinite;
   -webkit-transition: top 0.75s ease-in-out;
   transition: top 0.75s ease-in-out;
 }

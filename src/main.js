@@ -37,9 +37,6 @@ function closeModal() {
     });
     // removing from view port by moving it up - out of the screen
     $("#user-modal").css("top", "-100vh");
-    setTimeout(function () {
-      $("#user-modal").hide();
-    }, 1000);
   } else {
     $(".no-user-error").show();
   }

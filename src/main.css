@@ -177,6 +177,10 @@ body::-webkit-scrollbar-thumb {
           flex-direction: column;
 }
 
+.main-content .conversation:first-child {
+  margin-top: 1rem;
+}
+
 .main-content .conversation .item {
   width: 100%;
   font-size: 1.2rem;

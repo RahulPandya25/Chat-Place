@@ -137,6 +137,10 @@ body {
     display: flex;
     flex-direction: column;
 
+    &:first-child {
+      margin-top: 1rem;
+    }
+
     .item {
       width: 100%;
       font-size: 1.2rem;

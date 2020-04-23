@@ -14,6 +14,7 @@
   --pale-green: #dcf8c6;
   --pale-yellow: #fff5c4;
   --blue-ocean: #aadaff;
+  --pale-white: #fcfcfc;
 
   --lime-accent: #9acb34;
   --teal-accent: #45ada8;
@@ -134,7 +135,74 @@ body {
   .conversation {
     display: flex;
     flex-direction: column;
-    
+
+    .item {
+      width: 100%;
+      font-size: 1.2rem;
+      margin: 2px 0;
+    }
+
+    .new-user-joined,
+    .user-left {
+      p {
+        font-size: 1rem;
+        width: 60%;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 100px;
+      }
+    }
+    .new-user-joined p {
+      background-color: var(--blue-ocean);
+    }
+    .user-left p {
+      background-color: var(--pale-yellow);
+    }
+
+    .my-message {
+      .sender-message {
+        background-color: var(--pale-green);
+        float: right;
+        padding: 0.1rem 0.5rem;
+        border-radius: 3px;
+        margin-right: 8px;
+        position: relative;
+        &::before {
+          position: absolute;
+          content: "";
+          border-style: solid;
+          border-width: 8px 0px 8px 10px;
+          border-color: transparent transparent transparent var(--pale-green);
+          top: 0;
+          right: -5px;
+        }
+      }
+    }
+
+    .new-message {
+      .content {
+        background-color: var(--pale-white);
+        float: left;
+        padding: 0.1rem 0.5rem;
+        border-radius: 3px;
+        margin-left: 8px;
+        position: relative;
+        &::before {
+          position: absolute;
+          content: "";
+          border-style: solid;
+          border-width: 8px 10px 8px 0px;
+          border-color: transparent var(--pale-white) transparent transparent;
+          top: 0;
+          left: -5px;
+        }
+
+        .sender {
+          color: var(--blue-accent);
+          font-size: 0.75em;
+        }
+      }
+    }
   }
 }
 

@@ -14,10 +14,11 @@ let socket = io();
 let user = "";
 
 socket.on("new message", (data) => {
-  $(".conversation").append(`<div class="item new-message">
-  <p class="sender">${data.user}</p>
-  <p class="sender-message">${data.message}</p>
-</div>`);
+  $(".conversation").append(`        <div class="item new-message">
+  <div class="content">
+    <p class="sender">${data.user}</p>
+    <p class="sender-message">${data.message}</p>
+  </div>`);
 });
 socket.on("new connection", (data) => {
   $(".conversation").append(`<div class="item new-user-joined">
@@ -53,6 +54,9 @@ function closeModal() {
     setTimeout(function () {
       $("#user-modal").hide();
     }, 1000);
+    $(".conversation").append(`<div class="item new-user-joined">
+    <p>You joined</p>
+  </div>`);
   } else {
     $(".no-user-error").show();
   }

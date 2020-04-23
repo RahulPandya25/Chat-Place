@@ -1,3 +1,9 @@
+// fixing height for mobile devices
+// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+
 let socket = io();
 let user = "";
 
@@ -31,6 +37,7 @@ function closeModal() {
     });
     // removing from view port by moving it up - out of the screen
     $("#user-modal").css("top", "-100vh");
+    $("#user-modal").hide();
   } else {
     $(".no-user-error").show();
   }

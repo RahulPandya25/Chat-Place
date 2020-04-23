@@ -16,6 +16,7 @@
   --pale-yellow: #fff5c4;
   --blue-ocean: #aadaff;
   --pale-white: #fcfcfc;
+  --green: #35d371;
   --lime-accent: #9acb34;
   --teal-accent: #45ada8;
   --blue-accent: #4285f4;
@@ -243,7 +244,76 @@ body::-webkit-scrollbar-thumb {
 }
 
 .main-content .send-message {
-  background-color: lightblue;
+  background-color: var(--pale-white);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 1.1em;
+  padding: 0.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main-content .send-message input {
+  color: var(--black);
+  background-color: transparent;
+  padding-left: 0.8rem;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.048);
+  border-radius: 100px;
+  font-size: 1em;
+  max-width: calc(100% - 70px);
+}
+
+.main-content .send-message input::-webkit-input-placeholder {
+  font-size: 1em;
+  color: var(--black);
+  padding-left: 0.8rem;
+}
+
+.main-content .send-message input:-ms-input-placeholder {
+  font-size: 1em;
+  color: var(--black);
+  padding-left: 0.8rem;
+}
+
+.main-content .send-message input::-ms-input-placeholder {
+  font-size: 1em;
+  color: var(--black);
+  padding-left: 0.8rem;
+}
+
+.main-content .send-message input::placeholder {
+  font-size: 1em;
+  color: var(--black);
+  padding-left: 0.8rem;
+}
+
+.main-content .send-message input:focus {
+  outline: none !important;
+  border-color: var(--teal-accent);
+}
+
+.main-content .send-message .send {
+  --square: 50px;
+  all: unset;
+  background-color: var(--green);
+  width: var(--square);
+  height: var(--square);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1.25em;
+  margin-left: 10px;
+  color: var(--pale-white);
+}
+
+.main-content .send-message .send .far::before {
+  font-style: normal;
+  font-family: "Font Awesome 5 Free";
 }
 
 @-webkit-keyframes pulse {

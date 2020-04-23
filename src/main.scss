@@ -15,6 +15,7 @@
   --pale-yellow: #fff5c4;
   --blue-ocean: #aadaff;
   --pale-white: #fcfcfc;
+  --green: #35d371;
 
   --lime-accent: #9acb34;
   --teal-accent: #45ada8;
@@ -206,7 +207,53 @@ body {
   }
 
   .send-message {
-    background-color: lightblue;
+    background-color: var(--pale-white);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.1em;
+    padding: 0.5rem;
+
+    display: flex;
+    justify-content: center;
+
+    input {
+      color: var(--black);
+      background-color: transparent;
+      padding-left: 0.8rem;
+      border: none;
+      background-color: rgba(0, 0, 0, 0.048);
+      border-radius: 100px;
+      // border-bottom: 3px solid #0a1128a9;
+      font-size: 1em;
+      max-width: calc(100% - 70px);
+
+      &::placeholder {
+        font-size: 1em;
+        color: var(--black);
+        padding-left: 0.8rem;
+      }
+      &:focus {
+        outline: none !important;
+        border-color: var(--teal-accent);
+      }
+    }
+    .send {
+      --square: 50px;
+      all: unset;
+      background-color: var(--green);
+      width: var(--square);
+      height: var(--square);
+      border-radius: 50%;
+      text-align: center;
+      font-size: 1.25em;
+      margin-left: 10px;
+      color: var(--pale-white);
+      .far::before {
+        font-style: normal;
+        font-family: "Font Awesome 5 Free";
+      }
+    }
   }
 }
 

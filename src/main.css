@@ -242,6 +242,10 @@ body::-webkit-scrollbar-thumb {
   font-size: 0.75em;
 }
 
+.main-content .send-message {
+  background-color: lightblue;
+}
+
 @-webkit-keyframes pulse {
   0% {
     background-color: var(--teal-accent);

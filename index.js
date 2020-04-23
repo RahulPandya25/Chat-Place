@@ -24,13 +24,17 @@ io.on("connection", (socket) => {
 
   // broadcast message
   socket.on("broadcast", (data) => {
+    console.log(data.user);
     if (data.type === "NEW MESSAGE") {
       socket.broadcast.emit("new message", data);
       socket.emit("user list", userService.getUserList());
     } else if (data.type === "NEW CONNECTION") {
-      console.log(`new user: ${data.user}`);
       userService.addUser(data.user);
       socket.broadcast.emit("new connection", data);
+    } else if (data.type === "USER DISCONNECTED") {
+      //  remove user from user list
+      socket.broadcast.emit("user disconnected", data);
+      // disconnect from socket io
     }
   });
 });

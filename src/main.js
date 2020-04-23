@@ -7,6 +7,9 @@ socket.on("new message", (data) => {
 socket.on("new connection", (data) => {
   $(".messages").append(`<br/>${data.user} joined`);
 });
+socket.on("user disconnected", (data) => {
+  $(".messages").append(`<br/>${data.user} disconnected`);
+});
 socket.on("user list", (data) => {
   console.log(data);
 });
@@ -21,12 +24,13 @@ function closeModal() {
   user = $("#user").val().trim();
   if (user && user !== "") {
     // todo: and already user scenario - use api
-    $("#user-modal").hide();
     socket.emit("broadcast", {
       user: user,
       message: "new connection",
       type: "NEW CONNECTION",
     });
+    // removing from view port by moving it up - out of the screen
+    $("#user-modal").css("top", "-100vh");
   } else {
     $(".no-user-error").show();
   }

@@ -14,18 +14,18 @@ let socket = io();
 let user = "";
 
 socket.on("new message", (data) => {
-  $(".conversation").append(`<div class="message new-message">
+  $(".conversation").append(`<div class="item new-message">
   <p class="sender">${data.user}</p>
   <p class="sender-message">${data.message}</p>
 </div>`);
 });
 socket.on("new connection", (data) => {
-  $(".conversation").append(`<div class="new-user-joined">
+  $(".conversation").append(`<div class="item new-user-joined">
   <p>${data.user} joined</p>
 </div>`);
 });
 socket.on("user disconnected", (data) => {
-  $(".conversation").append(`<div class="user-left">
+  $(".conversation").append(`<div class="item user-left">
   <p>${data.user} left</p>
 </div>`);
 });
@@ -67,7 +67,7 @@ function sendMessage() {
       type: "NEW MESSAGE",
     });
     $("#message").val("");
-    $(".conversation").append(`<div class="message my-message">
+    $(".conversation").append(`<div class="item my-message">
     <p class="sender-message">${message}</p>
   </div>`);
   }

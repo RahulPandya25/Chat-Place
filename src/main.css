@@ -11,6 +11,10 @@
 }
 
 :root {
+  --pale-blue-green: #ecfaf5;
+  --pale-green: #dcf8c6;
+  --pale-yellow: #fff5c4;
+  --blue-ocean: #aadaff;
   --lime-accent: #9acb34;
   --teal-accent: #45ada8;
   --blue-accent: #4285f4;
@@ -158,7 +162,17 @@ body::-webkit-scrollbar-thumb {
 }
 
 .main-content {
-  background-color: #9acb34;
+  background-color: white;
+}
+
+.main-content .conversation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 @-webkit-keyframes pulse {

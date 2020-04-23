@@ -15,7 +15,7 @@
   --pale-green: #dcf8c6;
   --pale-yellow: #fff5c4;
   --blue-ocean: #aadaff;
-  --pale-white: #fcfcfc;
+  --pale-white: #fafafa;
   --green: #35d371;
   --lime-accent: #9acb34;
   --teal-accent: #45ada8;
@@ -35,7 +35,7 @@
 }
 
 body {
-  background-color: var(--teal-accent);
+  background-color: white;
   color: var(--black);
 }
 
@@ -175,10 +175,6 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.main-content .conversation:first-child {
-  margin-top: 1rem;
 }
 
 .main-content .conversation .item {

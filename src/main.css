@@ -75,8 +75,8 @@ body::-webkit-scrollbar-thumb {
           align-items: center;
   background: linear-gradient(-45deg, #c6ffdd, #fbd786, #f7797d);
   background-size: 200% 100%;
-  -webkit-animation: gradient 5s ease alternate infinite;
-          animation: gradient 5s ease alternate infinite;
+  -webkit-animation: gradient 2s ease alternate infinite;
+          animation: gradient 2s ease alternate infinite;
   -webkit-transition: top 0.75s ease-in-out;
   transition: top 0.75s ease-in-out;
 }
@@ -340,19 +340,19 @@ body::-webkit-scrollbar-thumb {
 
 @-webkit-keyframes gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0% 200%;
   }
   100% {
-    background-position: 100% 50%;
+    background-position: 100% 200%;
   }
 }
 
 @keyframes gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0% 200%;
   }
   100% {
-    background-position: 100% 50%;
+    background-position: 100% 200%;
   }
 }
 /*# sourceMappingURL=main.css.map */

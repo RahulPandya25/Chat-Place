@@ -67,7 +67,7 @@ body {
 
   background: linear-gradient(-45deg, #c6ffdd, #fbd786, #f7797d);
   background-size: 200% 100%;
-  animation: gradient 5s ease alternate infinite;
+  animation: gradient 2s ease alternate infinite;
 
   // animation: pulse 10s linear alternate infinite;
 
@@ -272,9 +272,9 @@ body {
 
 @keyframes gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 0% 200%;
   }
   100% {
-    background-position: 100% 50%;
+    background-position: 100% 200%;
   }
 }

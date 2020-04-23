@@ -51,14 +51,19 @@ body {
   height: 100vh; /* Fallback */
   height: calc(var(--vh, 1vh) * 100);
 
-  padding: 40% 0 10%;
+  padding: 40% 0 8%;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
-  animation: pulse 10s linear alternate infinite;
+  background: linear-gradient(-45deg, #c6ffdd, #fbd786, #f7797d);
+  background-size: 200% 100%;
+  animation: gradient 10s ease alternate infinite;
+
+  // animation: pulse 10s linear alternate infinite;
+
   transition: top 0.75s ease-in-out;
 
   .hologram {
@@ -93,7 +98,7 @@ body {
       }
       &:focus {
         outline: none !important;
-        border-color: var(--red-accent);
+        border-color: var(--teal-accent);
       }
     }
     p {
@@ -106,7 +111,6 @@ body {
       padding: 0.2rem 0.35rem;
       color: var(--black);
       border: 3px solid #0a1128a9;
-      // background-color: var(--yellow-accent);
       font-size: 1em;
       font-weight: 600;
       border-radius: 0.5rem;
@@ -126,5 +130,14 @@ body {
   }
   100% {
     background-color: var(--lime-accent);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }

@@ -53,7 +53,7 @@ body::-webkit-scrollbar-thumb {
   height: 100vh;
   /* Fallback */
   height: calc(var(--vh, 1vh) * 100);
-  padding: 40% 0 10%;
+  padding: 40% 0 8%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -67,8 +67,10 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-animation: pulse 10s linear alternate infinite;
-          animation: pulse 10s linear alternate infinite;
+  background: linear-gradient(-45deg, #c6ffdd, #fbd786, #f7797d);
+  background-size: 200% 100%;
+  -webkit-animation: gradient 10s ease alternate infinite;
+          animation: gradient 10s ease alternate infinite;
   -webkit-transition: top 0.75s ease-in-out;
   transition: top 0.75s ease-in-out;
 }
@@ -132,7 +134,7 @@ body::-webkit-scrollbar-thumb {
 
 .modal .modal-content input:focus {
   outline: none !important;
-  border-color: var(--red-accent);
+  border-color: var(--teal-accent);
 }
 
 .modal .modal-content p {
@@ -170,6 +172,24 @@ body::-webkit-scrollbar-thumb {
   }
   100% {
     background-color: var(--lime-accent);
+  }
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
   }
 }
 /*# sourceMappingURL=main.css.map */

@@ -51,7 +51,8 @@ body {
   height: 100vh; /* Fallback */
   height: calc(var(--vh, 1vh) * 100);
 
-  padding: 8rem 0 4rem;
+  padding: 40% 0 10%;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;

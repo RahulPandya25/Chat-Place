@@ -224,14 +224,12 @@ body {
       border: none;
       background-color: rgba(0, 0, 0, 0.048);
       border-radius: 100px;
-      // border-bottom: 3px solid #0a1128a9;
       font-size: 1em;
       max-width: calc(100% - 70px);
 
       &::placeholder {
         font-size: 1em;
         color: var(--black);
-        padding-left: 0.8rem;
       }
       &:focus {
         outline: none !important;

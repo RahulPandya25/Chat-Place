@@ -38,17 +38,7 @@
     inset -6px -6px 10px rgba(255, 255, 255, 0.8);
 }
 
-body {
-  color: var(--black);
-  position: relative;
-  &::-webkit-scrollbar {
-    width: 8px;
-    background: rgba(0, 0, 0, 0.1);
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--pale-red);
-    border-radius: 10px;
-  }
+html {
   &::before {
     position: absolute;
     content: "";
@@ -62,6 +52,18 @@ body {
     background-size: cover;
     background-repeat: repeat;
     background-attachment: fixed;
+  }
+}
+
+body {
+  color: var(--black);
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--pale-red);
+    border-radius: 10px;
   }
 }
 

@@ -277,7 +277,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .send-message {
-  opacity: 0.5;
   background-color: var(--pale-white);
   position: fixed;
   z-index: 1;

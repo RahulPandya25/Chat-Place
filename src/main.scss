@@ -54,7 +54,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: inherit;
     opacity: 0.2;
     background-image: url("img/backgroung image.png");
     background-color: var(--light);

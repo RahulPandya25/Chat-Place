@@ -62,6 +62,7 @@ body::before {
   background-image: url("img/backgroung image.png");
   background-color: var(--light);
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .modal {

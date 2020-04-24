@@ -15,6 +15,7 @@
   --pale-green: #dcf8c6;
   --pale-yellow: #fff5c4;
   --pale-red: #f79c9f;
+  --pale-blue: #e1f3fb;
   --blue-ocean: #aadaff;
   --pale-white: #f9f9f9;
   --pale-grey: #f0f0f0;
@@ -37,7 +38,6 @@
 }
 
 body {
-  background-color: white;
   color: var(--black);
 }
 
@@ -49,6 +49,19 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: var(--pale-red);
   border-radius: 10px;
+}
+
+body::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background-image: url("img/backgroung image.png");
+  background-color: var(--pale-blue-green);
+  background-size: cover;
 }
 
 .modal {
@@ -223,7 +236,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .main-content .conversation .new-user-joined p {
-  background-color: var(--blue-ocean);
+  background-color: var(--pale-blue);
 }
 
 .main-content .conversation .user-left p {

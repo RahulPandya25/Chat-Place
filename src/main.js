@@ -75,4 +75,7 @@ function sendMessage() {
     <p class="sender-message">${message}</p>
   </div>`);
   }
+  $("#message").focus();
+  // scroll down
+  $("html, body").animate({ scrollTop: $(document).height() }, 500);
 }

@@ -196,7 +196,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   top: 58px;
   /* to start after navbar */
-  max-width: calc(100% - 124);
+  padding-bottom: 66px;
   /* to end before send btns */
 }
 
@@ -277,6 +277,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .send-message {
+  opacity: 0.5;
   background-color: var(--pale-white);
   position: fixed;
   z-index: 1;

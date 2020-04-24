@@ -164,7 +164,7 @@ body {
 .main-content {
   position: relative;
   top: 58px; /* to start after navbar */
-  max-width: calc(100% - 124); /* to end before send btns */
+  padding-bottom: 66px; /* to end before send btns */
   .conversation {
     display: flex;
     flex-direction: column;
@@ -240,6 +240,7 @@ body {
 }
 
 .send-message {
+  opacity: 0.5;
   background-color: var(--pale-white);
   position: fixed;
   z-index: 1;

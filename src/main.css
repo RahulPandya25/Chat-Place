@@ -196,7 +196,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   top: 58px;
   /* to start after navbar */
-  bottom: 66px;
+  max-width: calc(100% - 124);
   /* to end before send btns */
 }
 

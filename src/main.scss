@@ -164,7 +164,7 @@ body {
 .main-content {
   position: relative;
   top: 58px; /* to start after navbar */
-  bottom: 66px; /* to end before send btns */
+  max-width: calc(100% - 124); /* to end before send btns */
   .conversation {
     display: flex;
     flex-direction: column;

@@ -19,16 +19,22 @@ socket.on("new message", (data) => {
     <p class="sender">${data.user}</p>
     <p class="sender-message">${data.message}</p>
   </div>`);
+  // scroll down
+  scrollDown();
 });
 socket.on("new connection", (data) => {
   $(".conversation").append(`<div class="item new-user-joined">
   <p>${data.user} joined</p>
 </div>`);
+  // scroll down
+  scrollDown();
 });
 socket.on("user disconnected", (data) => {
   $(".conversation").append(`<div class="item user-left">
   <p>${data.user} left</p>
 </div>`);
+  // scroll down
+  scrollDown();
 });
 socket.on("user list", (data) => {
   console.log(data);
@@ -77,5 +83,9 @@ function sendMessage() {
   }
   $("#message").focus();
   // scroll down
+  scrollDown();
+}
+
+function scrollDown() {
   $("html, body").animate({ scrollTop: $(document).height() }, 500);
 }

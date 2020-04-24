@@ -143,6 +143,7 @@ body {
 
 .navbar {
   position: fixed;
+  max-height: 58px; /* restricting navbar */
   z-index: 1;
   width: 100%;
   display: flex;
@@ -159,7 +160,8 @@ body {
 }
 
 .main-content {
-  background-color: white;
+  position: relative;
+  top: 58px; /* to start after navbar */
   .conversation {
     display: flex;
     flex-direction: column;

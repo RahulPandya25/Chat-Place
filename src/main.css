@@ -73,10 +73,10 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: linear-gradient(-45deg, #c6ffdd, #fbd786, #f7797d);
-  background-size: 200% 100%;
-  -webkit-animation: gradient 2s ease alternate infinite;
-          animation: gradient 2s ease alternate infinite;
+  background: linear-gradient(-45deg, #c6ffdd, #fbd786, #f79c9f, #fbd786, #c6ffdd);
+  background-size: 800% 100%;
+  -webkit-animation: gradient 8s ease-in-out alternate infinite;
+          animation: gradient 8s ease-in-out alternate infinite;
   -webkit-transition: top 0.75s ease-in-out;
   transition: top 0.75s ease-in-out;
 }
@@ -272,25 +272,21 @@ body::-webkit-scrollbar-thumb {
 .main-content .send-message input::-webkit-input-placeholder {
   font-size: 1em;
   color: var(--black);
-  padding-left: 0.8rem;
 }
 
 .main-content .send-message input:-ms-input-placeholder {
   font-size: 1em;
   color: var(--black);
-  padding-left: 0.8rem;
 }
 
 .main-content .send-message input::-ms-input-placeholder {
   font-size: 1em;
   color: var(--black);
-  padding-left: 0.8rem;
 }
 
 .main-content .send-message input::placeholder {
   font-size: 1em;
   color: var(--black);
-  padding-left: 0.8rem;
 }
 
 .main-content .send-message input:focus {
@@ -336,19 +332,19 @@ body::-webkit-scrollbar-thumb {
 
 @-webkit-keyframes gradient {
   0% {
-    background-position: 0% 200%;
+    background-position: 0% 800%;
   }
   100% {
-    background-position: 100% 200%;
+    background-position: 100% 800%;
   }
 }
 
 @keyframes gradient {
   0% {
-    background-position: 0% 200%;
+    background-position: 0% 800%;
   }
   100% {
-    background-position: 100% 200%;
+    background-position: 100% 800%;
   }
 }
 /*# sourceMappingURL=main.css.map */

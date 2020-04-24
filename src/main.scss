@@ -65,9 +65,16 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  background: linear-gradient(-45deg, #c6ffdd, #fbd786, #f7797d);
-  background-size: 200% 100%;
-  animation: gradient 2s ease alternate infinite;
+  background: linear-gradient(
+    -45deg,
+    #c6ffdd,
+    #fbd786,
+    #f79c9f,
+    #fbd786,
+    #c6ffdd
+  );
+  background-size: 800% 100%;
+  animation: gradient 8s ease-in-out alternate infinite;
 
   // animation: pulse 10s linear alternate infinite;
 
@@ -266,9 +273,9 @@ body {
 
 @keyframes gradient {
   0% {
-    background-position: 0% 200%;
+    background-position: 0% 800%;
   }
   100% {
-    background-position: 100% 200%;
+    background-position: 100% 800%;
   }
 }

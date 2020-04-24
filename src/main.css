@@ -14,8 +14,10 @@
   --pale-blue-green: #ecfaf5;
   --pale-green: #dcf8c6;
   --pale-yellow: #fff5c4;
+  --pale-red: #f79c9f;
   --blue-ocean: #aadaff;
-  --pale-white: #fafafa;
+  --pale-white: #f9f9f9;
+  --pale-grey: #f0f0f0;
   --green: #35d371;
   --lime-accent: #9acb34;
   --teal-accent: #45ada8;
@@ -27,7 +29,7 @@
   --dark: #363e4b;
   --medium: #3c4758;
   --light: #fbf8ef;
-  --black: #0a1128c9;
+  --black: #0a1128b6;
   --emboss: 6px 6px 10px rgba(0, 0, 0, 0.1),
     -6px -6px 10px rgba(255, 255, 255, 0.8);
   --deboss: inset 6px 6px 10px rgba(0, 0, 0, 0.1),
@@ -45,14 +47,14 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: var(--green-accent);
+  background-color: var(--pale-red);
   border-radius: 10px;
 }
 
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100vw;
@@ -156,11 +158,35 @@ body::-webkit-scrollbar-thumb {
   font-size: 1em;
   font-weight: 600;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .modal .modal-content .close:hover, .modal .modal-content .close:focus {
   text-decoration: none;
   cursor: pointer;
+}
+
+.navbar {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: var(--pale-white);
+  color: var(--black);
+}
+
+.navbar .app-title {
+  padding: 0.25rem;
+  font-size: 2em;
+  font-weight: 500;
 }
 
 .main-content {
@@ -179,8 +205,8 @@ body::-webkit-scrollbar-thumb {
 
 .main-content .conversation .item {
   width: 100%;
-  font-size: 1.2rem;
-  margin: 2px 0;
+  font-size: 1.2em;
+  margin: 0.5rem 0;
 }
 
 .main-content .conversation .new-user-joined p,
@@ -205,7 +231,7 @@ body::-webkit-scrollbar-thumb {
   float: right;
   padding: 0.1rem 0.5rem;
   border-radius: 3px;
-  margin-right: 8px;
+  margin-right: 1rem;
   position: relative;
 }
 
@@ -213,18 +239,18 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   content: "";
   border-style: solid;
-  border-width: 8px 0px 8px 10px;
+  border-width: 8px 0px 8px 12px;
   border-color: transparent transparent transparent var(--pale-green);
   top: 0;
-  right: -5px;
+  right: -8px;
 }
 
 .main-content .conversation .new-message .content {
-  background-color: var(--pale-white);
+  background-color: var(--pale-grey);
   float: left;
   padding: 0.1rem 0.5rem;
   border-radius: 3px;
-  margin-left: 8px;
+  margin-left: 1rem;
   position: relative;
 }
 
@@ -232,10 +258,10 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   content: "";
   border-style: solid;
-  border-width: 8px 10px 8px 0px;
-  border-color: transparent var(--pale-white) transparent transparent;
+  border-width: 8px 12px 8px 0px;
+  border-color: transparent var(--pale-grey) transparent transparent;
   top: 0;
-  left: -5px;
+  left: -8px;
 }
 
 .main-content .conversation .new-message .content .sender {
@@ -243,9 +269,10 @@ body::-webkit-scrollbar-thumb {
   font-size: 0.75em;
 }
 
-.main-content .send-message {
+.send-message {
   background-color: var(--pale-white);
   position: fixed;
+  z-index: 1;
   bottom: 0;
   width: 100%;
   font-size: 1.1em;
@@ -258,7 +285,7 @@ body::-webkit-scrollbar-thumb {
           justify-content: center;
 }
 
-.main-content .send-message input {
+.send-message input {
   color: var(--black);
   background-color: transparent;
   padding-left: 0.8rem;
@@ -269,32 +296,32 @@ body::-webkit-scrollbar-thumb {
   max-width: calc(100% - 70px);
 }
 
-.main-content .send-message input::-webkit-input-placeholder {
+.send-message input::-webkit-input-placeholder {
   font-size: 1em;
   color: var(--black);
 }
 
-.main-content .send-message input:-ms-input-placeholder {
+.send-message input:-ms-input-placeholder {
   font-size: 1em;
   color: var(--black);
 }
 
-.main-content .send-message input::-ms-input-placeholder {
+.send-message input::-ms-input-placeholder {
   font-size: 1em;
   color: var(--black);
 }
 
-.main-content .send-message input::placeholder {
+.send-message input::placeholder {
   font-size: 1em;
   color: var(--black);
 }
 
-.main-content .send-message input:focus {
+.send-message input:focus {
   outline: none !important;
   border-color: var(--teal-accent);
 }
 
-.main-content .send-message .send {
+.send-message .send {
   --square: 50px;
   all: unset;
   background-color: var(--green);
@@ -307,7 +334,7 @@ body::-webkit-scrollbar-thumb {
   color: var(--pale-white);
 }
 
-.main-content .send-message .send .far::before {
+.send-message .send .far::before {
   font-style: normal;
   font-family: "Font Awesome 5 Free";
 }

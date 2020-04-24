@@ -38,23 +38,10 @@
     inset -6px -6px 10px rgba(255, 255, 255, 0.8);
 }
 
-html {
-  &::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.2;
-    background: url("img/backgroung image.png") repeat center center fixed;
-    background-color: var(--blue-ocean);
-    background-size: auto;
-  }
-}
-
 body {
   color: var(--black);
+  background-color: var(--light);
+
   &::-webkit-scrollbar {
     width: 8px;
     background: rgba(0, 0, 0, 0.1);

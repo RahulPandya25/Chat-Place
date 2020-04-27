@@ -126,6 +126,35 @@ function sendMessage() {
   scrollDown();
 }
 
+function logout() {
+  socket.emit("broadcast", {
+    user: user,
+    message: "user disconnected",
+    type: "USER DISCONNECTED",
+  });
+  localStorage.removeItem("user");
+
+  // show user modal
+  $("#user-modal").show();
+  setTimeout(function () {
+    $("#user-modal").css("top", "0");
+  }, 1000);
+}
+
+function toggleNavbar() {
+  var burger = $(".burger");
+  var navMenu = $(".nav-menu");
+  if (burger.hasClass("menu-open")) {
+    // menu already open, close it
+    burger.removeClass("menu-open");
+    navMenu.css("top", "-100vh");
+  } else {
+    // meni is closed, open it
+    burger.addClass("menu-open");
+    navMenu.css("top", "0");
+  }
+}
+
 function scrollDown() {
   $("html, body").animate({ scrollTop: $(document).height() }, 500);
 }

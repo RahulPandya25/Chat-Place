@@ -73,7 +73,7 @@ body {
     -45deg,
     #c6ffdd,
     #fbd786,
-    #f79c9f,
+    #eba2a4,
     #fbd786,
     #c6ffdd
   );
@@ -150,15 +150,95 @@ body {
   z-index: 1;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 0.5rem 0;
 
-  background-color: var(--pale-white);
+  background-color: var(--pale-grey);
   color: var(--black);
   .app-title {
-    padding: 0.25rem;
+    padding: 0 30px;
     font-size: 2em;
     font-weight: 500;
+  }
+  .burger {
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 3;
+    .fa-ellipsis-v {
+      display: block;
+    }
+    .fa-times {
+      display: none;
+    }
+
+    &.menu-open {
+      .fa-ellipsis-v {
+        display: none;
+      }
+      .fa-times {
+        display: block;
+      }
+    }
+  }
+
+  .nav-menu {
+    z-index: 2;
+    position: absolute;
+    top: -100vh;
+    width: 100%;
+
+    background: linear-gradient(
+      -45deg,
+      #c6ffdd,
+      #fbd786,
+      #eba2a4,
+      #fbd786,
+      #c6ffdd
+    );
+    background-size: 800% 100%;
+    animation: gradient 8s ease-in-out alternate infinite;
+
+    transition: top 0.5s ease-in-out;
+    ul {
+      margin-top: 60px; /*margin from top*/
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      li {
+        list-style: none;
+        position: relative;
+        width: 100%;
+        display: flex;
+        padding: 0.5rem 0;
+        justify-content: center;
+        align-items: center;
+        &:not(:last-child)::after {
+          position: absolute;
+          content: "";
+          bottom: 0;
+          left: 50%;
+          height: 1px;
+          width: 80%;
+          background-color: rgba(0, 0, 0, 0.1);
+          transform: translateX(-50%);
+        }
+
+        a {
+          text-decoration: none;
+          cursor: pointer;
+          &.logout {
+            color: red;
+          }
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 45px;
+      }
+    }
   }
 }
 
@@ -283,11 +363,13 @@ body {
     font-size: 1.25em;
     margin-left: 10px;
     color: var(--pale-white);
-    .far::before {
-      font-style: normal;
-      font-family: "Font Awesome 5 Free";
-    }
   }
+}
+
+.far::before,
+.fas::before {
+  font-style: normal;
+  font-family: "Font Awesome 5 Free";
 }
 
 @keyframes pulse {

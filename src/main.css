@@ -76,7 +76,7 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: linear-gradient(-45deg, #c6ffdd, #fbd786, #f79c9f, #fbd786, #c6ffdd);
+  background: linear-gradient(-45deg, #c6ffdd, #fbd786, #eba2a4, #fbd786, #c6ffdd);
   background-size: 800% 100%;
   -webkit-animation: gradient 8s ease-in-out alternate infinite;
           animation: gradient 8s ease-in-out alternate infinite;
@@ -177,20 +177,115 @@ body::-webkit-scrollbar-thumb {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem 0;
+  background-color: var(--pale-grey);
+  color: var(--black);
+}
+
+.navbar .app-title {
+  padding: 0 30px;
+  font-size: 2em;
+  font-weight: 500;
+}
+
+.navbar .burger {
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.navbar .burger .fa-ellipsis-v {
+  display: block;
+}
+
+.navbar .burger .fa-times {
+  display: none;
+}
+
+.navbar .burger.menu-open .fa-ellipsis-v {
+  display: none;
+}
+
+.navbar .burger.menu-open .fa-times {
+  display: block;
+}
+
+.navbar .nav-menu {
+  z-index: 2;
+  position: absolute;
+  top: -100vh;
+  width: 100%;
+  background: linear-gradient(-45deg, #c6ffdd, #fbd786, #eba2a4, #fbd786, #c6ffdd);
+  background-size: 800% 100%;
+  -webkit-animation: gradient 8s ease-in-out alternate infinite;
+          animation: gradient 8s ease-in-out alternate infinite;
+  -webkit-transition: top 0.5s ease-in-out;
+  transition: top 0.5s ease-in-out;
+}
+
+.navbar .nav-menu ul {
+  margin-top: 60px;
+  /*margin from top*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: var(--pale-white);
-  color: var(--black);
 }
 
-.navbar .app-title {
-  padding: 0.25rem;
-  font-size: 2em;
-  font-weight: 500;
+.navbar .nav-menu ul li {
+  list-style: none;
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.5rem 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .nav-menu ul li:not(:last-child)::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 50%;
+  height: 1px;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.navbar .nav-menu ul li a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar .nav-menu ul li a.logout {
+  color: red;
+}
+
+.navbar .nav-menu ul:last-child {
+  margin-bottom: 45px;
 }
 
 .main-content {
@@ -343,7 +438,8 @@ body::-webkit-scrollbar-thumb {
   color: var(--pale-white);
 }
 
-.send-message .send .far::before {
+.far::before,
+.fas::before {
   font-style: normal;
   font-family: "Font Awesome 5 Free";
 }

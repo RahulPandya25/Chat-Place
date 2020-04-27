@@ -147,6 +147,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .modal .modal-content p {
+  display: none;
   color: var(--red-accent);
 }
 

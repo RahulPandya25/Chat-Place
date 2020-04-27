@@ -1,17 +1,16 @@
-// fixing height for mobile devices
-// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-let vh = window.innerHeight * 0.01;
-// Then we set the value in the --vh custom property to the root of the document
-document.documentElement.style.setProperty("--vh", `${vh}px`);
-// We listen to the resize event
-window.addEventListener("resize", () => {
-  // We execute the same script as before
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty("--vh", `${vh}px`);
-});
-
 let socket = io();
-let user = "";
+let user = localStorage.getItem("user");
+
+if (user && user !== "") {
+  socket.emit("broadcast", {
+    user: user,
+    message: "old connection",
+    type: "OLD CONNECTION",
+  });
+  $("#user-modal").hide();
+} else {
+  $("#user-modal").show();
+}
 
 socket.on("new message", (data) => {
   $(".conversation").append(`        <div class="item new-message">
@@ -29,6 +28,13 @@ socket.on("new connection", (data) => {
   // scroll down
   scrollDown();
 });
+socket.on("user rejoined", (data) => {
+  $(".conversation").append(`<div class="item new-user-joined">
+  <p>${data.user} rejoined</p>
+</div>`);
+  // scroll down
+  scrollDown();
+});
 socket.on("user disconnected", (data) => {
   $(".conversation").append(`<div class="item user-left">
   <p>${data.user} left</p>
@@ -39,16 +45,50 @@ socket.on("user disconnected", (data) => {
 socket.on("user list", (data) => {
   console.log(data);
 });
+socket.on("old messages", (data) => {
+  if (data && data.length !== 0) {
+    data.forEach((convo) => {
+      if (convo.type === "NEW MESSAGE") {
+        if (convo.user === user) {
+          // my message
+          $(".conversation").append(`<div class="item my-message">
+    <p class="sender-message">${convo.message}</p>
+  </div>`);
+        } else {
+          // new messages snippet
+          $(".conversation").append(`<div class="item new-message">
+        <div class="content">
+          <p class="sender">${convo.user}</p>
+          <p class="sender-message">${convo.message}</p>
+        </div>`);
+        }
+      } else if (convo.type === "NEW CONNECTION") {
+        //   // user joined snippet
+        $(".conversation").append(`<div class="item new-user-joined">
+      <p>${user === convo.user ? "You" : convo.user} joined</p>
+    </div>`);
+      } else if (convo.type === "OLD CONNECTION") {
+        // user rejoined snippet
+        $(".conversation").append(`<div class="item new-user-joined">
+    <p>${user === convo.user ? "You" : convo.user} rejoined</p>
+    </div>`);
+      } else if (convo.type === "USER DISCONNECTED") {
+        //   // user left snippet
+        $(".conversation").append(`<div class="item user-left">
+    <p>${user === convo.user ? "You" : convo.user} left</p>
+    </div>`);
+      }
+    });
+  }
 
-function openModal() {
-  $("#user-modal").show();
-  $(".no-user-error").hide();
-  $(".user-taken-error").hide();
-}
+  // scroll down
+  scrollDown();
+});
 
 function closeModal() {
   user = $("#user").val().trim();
   if (user && user !== "") {
+    localStorage.setItem("user", user);
     // todo: and already user scenario - use api
     socket.emit("broadcast", {
       user: user,

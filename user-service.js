@@ -8,10 +8,16 @@ let userList = [];
 const addUser = (user) => userList.push(user);
 const getUserList = () => userList;
 
+let conversations = [];
+const addConvo = (convo) => conversations.push(convo);
+const getConvo = () => conversations;
+
 module.exports = {
   incUserCount,
   decUserCount,
   getUserCount,
   addUser,
   getUserList,
+  addConvo,
+  getConvo,
 };

@@ -24,13 +24,24 @@ io.on("connection", (socket) => {
 
   // broadcast message
   socket.on("broadcast", (data) => {
-    console.log(data.user);
+    // add time to data
+    data.time = new Date();
+    // push to convo first
+    userService.addConvo(data);
+    console.log(data);
+
     if (data.type === "NEW MESSAGE") {
       socket.broadcast.emit("new message", data);
       socket.emit("user list", userService.getUserList());
     } else if (data.type === "NEW CONNECTION") {
-      userService.addUser(data.user);
+      if (!userService.getUserList().includes(data.user))
+        userService.addUser(data.user);
       socket.broadcast.emit("new connection", data);
+    } else if (data.type === "OLD CONNECTION") {
+      if (userService.getUserList().includes(data.user)) {
+        socket.emit("old messages", userService.getConvo());
+        socket.broadcast.emit("user rejoined", data);
+      }
     } else if (data.type === "USER DISCONNECTED") {
       //  remove user from user list
       socket.broadcast.emit("user disconnected", data);

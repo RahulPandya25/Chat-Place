@@ -26,8 +26,10 @@ io.on("connection", (socket) => {
   socket.on("broadcast", (data) => {
     // add time to data
     data.time = new Date();
-    // push to convo first
-    userService.addConvo(data);
+    if (data.type !== "NEW CONNECTION")
+      // for New Connection it is to be handled by diff way
+      // push to convo first
+      userService.addConvo(data);
 
     if (data.type === "NEW MESSAGE") {
       socket.broadcast.emit("new message", data);
@@ -36,6 +38,8 @@ io.on("connection", (socket) => {
         userService.addUser(data.user);
         socket.broadcast.emit("new connection", data);
         socket.emit("okay login");
+        // now push to convo
+        userService.addConvo(data);
       } else socket.emit("username exists");
     } else if (data.type === "OLD CONNECTION") {
       if (userService.getUserList().includes(data.user)) {

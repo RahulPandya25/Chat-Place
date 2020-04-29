@@ -7,6 +7,11 @@ const getUserCount = () => userCount;
 let userList = [];
 const addUser = (user) => userList.push(user);
 const getUserList = () => userList;
+const removeUserFromList = (user) => {
+  userList = userList.filter(function (element) {
+    return element != user;
+  });
+};
 
 let conversations = [];
 const addConvo = (convo) => conversations.push(convo);
@@ -18,6 +23,7 @@ module.exports = {
   getUserCount,
   addUser,
   getUserList,
+  removeUserFromList,
   addConvo,
   getConvo,
 };

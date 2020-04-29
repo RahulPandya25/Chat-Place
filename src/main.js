@@ -28,6 +28,20 @@ socket.on("new connection", (data) => {
   // scroll down
   scrollDown();
 });
+socket.on("username exists", () => {
+  $(".user-taken-error").show();
+});
+socket.on("okay login", () => {
+  // removing from view port by moving it up - out of the screen
+  $("#user-modal").css("top", "-100vh");
+  setTimeout(function () {
+    $("#user-modal").hide();
+  }, 1000);
+  $(".conversation").append(`<div class="item new-user-joined">
+<p>You joined</p>
+</div>`);
+});
+
 socket.on("user rejoined", (data) => {
   $(".conversation").append(`<div class="item new-user-joined">
   <p>${data.user} rejoined</p>
@@ -67,11 +81,11 @@ socket.on("old messages", (data) => {
         $(".conversation").append(`<div class="item new-user-joined">
       <p>${user === convo.user ? "You" : convo.user} joined</p>
     </div>`);
-      } else if (convo.type === "OLD CONNECTION") {
-        // user rejoined snippet
-        $(".conversation").append(`<div class="item new-user-joined">
-    <p>${user === convo.user ? "You" : convo.user} rejoined</p>
-    </div>`);
+        //   } else if (convo.type === "OLD CONNECTION") {
+        //     // user rejoined snippet
+        //     $(".conversation").append(`<div class="item new-user-joined">
+        // <p>${user === convo.user ? "You" : convo.user} rejoined</p>
+        // </div>`);
       } else if (convo.type === "USER DISCONNECTED") {
         //   // user left snippet
         $(".conversation").append(`<div class="item user-left">
@@ -95,14 +109,6 @@ function closeModal() {
       message: "new connection",
       type: "NEW CONNECTION",
     });
-    // removing from view port by moving it up - out of the screen
-    $("#user-modal").css("top", "-100vh");
-    setTimeout(function () {
-      $("#user-modal").hide();
-    }, 1000);
-    $(".conversation").append(`<div class="item new-user-joined">
-    <p>You joined</p>
-  </div>`);
   } else {
     $(".no-user-error").show();
   }
@@ -132,6 +138,8 @@ function logout() {
     message: "user disconnected",
     type: "USER DISCONNECTED",
   });
+  toggleNavbar();
+  // cleaning up storage
   localStorage.removeItem("user");
 
   // show user modal
@@ -139,6 +147,9 @@ function logout() {
   setTimeout(function () {
     $("#user-modal").css("top", "0");
   }, 1000);
+
+  // cleaning up convo
+  $(".conversation").empty();
 }
 
 function toggleNavbar() {

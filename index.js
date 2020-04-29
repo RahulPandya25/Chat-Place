@@ -28,24 +28,48 @@ io.on("connection", (socket) => {
     data.time = new Date();
     // push to convo first
     userService.addConvo(data);
-    console.log(data);
 
     if (data.type === "NEW MESSAGE") {
       socket.broadcast.emit("new message", data);
-      socket.emit("user list", userService.getUserList());
     } else if (data.type === "NEW CONNECTION") {
-      if (!userService.getUserList().includes(data.user))
+      if (!userService.getUserList().includes(data.user)) {
         userService.addUser(data.user);
-      socket.broadcast.emit("new connection", data);
+        socket.broadcast.emit("new connection", data);
+        socket.emit("okay login");
+      } else socket.emit("username exists");
     } else if (data.type === "OLD CONNECTION") {
       if (userService.getUserList().includes(data.user)) {
-        socket.emit("old messages", userService.getConvo());
-        socket.broadcast.emit("user rejoined", data);
+        var oldConvo = [];
+        var allConvo = userService.getConvo();
+        var userFound = false;
+        var userFoundIndex;
+        for (let i = allConvo.length - 1; i >= 0; i--) {
+          if (
+            allConvo[i].user === data.user &&
+            allConvo[i].type === "NEW CONNECTION"
+          ) {
+            userFound = true;
+            userFoundIndex = i;
+          }
+          if (userFound) {
+            for (let j = i; j < allConvo.length - 1; j++) {
+              oldConvo.push(allConvo[j]);
+            }
+            break;
+          }
+        }
+        console.log("old: " + oldConvo);
+        console.log("all : " + allConvo);
+
+        socket.emit("old messages", oldConvo);
+        // removed this because of inconsistency in ui
+        // socket.broadcast.emit("user rejoined", data);
       }
     } else if (data.type === "USER DISCONNECTED") {
       //  remove user from user list
+      userService.removeUserFromList(data.user);
+      // broadcast others
       socket.broadcast.emit("user disconnected", data);
-      // disconnect from socket io
     }
   });
 });

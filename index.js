@@ -26,16 +26,18 @@ io.on("connection", (socket) => {
   socket.on("broadcast", (data) => {
     // add time to data
     data.time = new Date();
-    // push to convo first
-    userService.addConvo(data);
 
     if (data.type === "NEW MESSAGE") {
       socket.broadcast.emit("new message", data);
+      // push to convo
+      userService.addConvo(data);
     } else if (data.type === "NEW CONNECTION") {
       if (!userService.getUserList().includes(data.user)) {
         userService.addUser(data.user);
         socket.broadcast.emit("new connection", data);
         socket.emit("okay login");
+        // push to convo
+        userService.addConvo(data);
       } else socket.emit("username exists");
     } else if (data.type === "OLD CONNECTION") {
       if (userService.getUserList().includes(data.user)) {
@@ -65,11 +67,15 @@ io.on("connection", (socket) => {
         // removed this because of inconsistency in ui
         // socket.broadcast.emit("user rejoined", data);
       }
+      // push to convo
+      userService.addConvo(data);
     } else if (data.type === "USER DISCONNECTED") {
       //  remove user from user list
       userService.removeUserFromList(data.user);
       // broadcast others
       socket.broadcast.emit("user disconnected", data);
+      // push to convo
+      userService.addConvo(data);
     }
   });
 });

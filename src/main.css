@@ -480,4 +480,30 @@ body::-webkit-scrollbar-thumb {
     background-position: 100% 800%;
   }
 }
+
+@media (min-width: 400px) {
+  .modal {
+    padding: 100px 0 20px;
+  }
+  .modal .hologram {
+    font-size: 4rem;
+  }
+  .modal .modal-content label {
+    font-size: 2em;
+  }
+  .modal .modal-content input {
+    padding: 0.5rem;
+    margin-top: 1rem;
+    font-size: 1.5em;
+  }
+  .modal .modal-content .close {
+    padding: 0.35rem 1rem;
+    margin-top: 2.5rem;
+    font-size: 1.5em;
+  }
+  .container {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
 /*# sourceMappingURL=main.css.map */

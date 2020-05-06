@@ -41,7 +41,6 @@ socket.on("okay login", () => {
 <p>You joined</p>
 </div>`);
 });
-
 socket.on("user rejoined", (data) => {
   $(".conversation").append(`<div class="item new-user-joined">
   <p>${data.user} rejoined</p>

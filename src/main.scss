@@ -149,9 +149,7 @@ body {
   max-height: 58px; /* restricting navbar */
   z-index: 1;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
   padding: 0.5rem 0;
 
   background-color: var(--pale-grey);
@@ -332,9 +330,6 @@ body {
   font-size: 1.1em;
   padding: 0.5rem;
 
-  display: flex;
-  justify-content: center;
-
   input {
     color: var(--black);
     background-color: transparent;
@@ -368,6 +363,22 @@ body {
   }
 }
 
+.flex {
+  display: flex;
+}
+.flex-justify-center {
+  justify-content: center;
+}
+.flex-justify-space-between {
+  justify-content: space-between;
+}
+.flex-align-center {
+  align-items: center;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+
 .far::before,
 .fas::before {
   font-style: normal;
@@ -393,7 +404,7 @@ body {
 }
 
 // for desktop
-@media (min-width: 400px) {
+@media (min-width: 500px) {
   .modal {
     padding: 100px 0 20px;
     .hologram {
@@ -416,13 +427,7 @@ body {
     }
   }
   .container {
-    width: 60%;
+    width: 65%;
     margin: 0 auto;
-  }
-  .navbar {
-  }
-  .main-content {
-  }
-  .send-message {
   }
 }

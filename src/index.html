@@ -45,36 +45,43 @@
     </div>
 
     <div class="navbar">
-      <label class="app-title">Chat Room</label>
-      <div class="burger" onclick="toggleNavbar()">
-        <i class="fas fa-ellipsis-v"></i><i class="fas fa-times"></i>
-      </div>
-      <div class="nav-menu">
-        <ul>
-          <li class="nav-item"><a>Testing Navbar</a></li>
-          <li class="nav-item"><a>Other Nav Items</a></li>
-          <li class="nav-item">
-            <a class="logout" onclick="logout()">Logout</a>
-          </li>
-        </ul>
+      <div class="container flex flex-align-center flex-justify-space-between">
+        <label class="app-title">Chat Room</label>
+        <div class="burger" onclick="toggleNavbar()">
+          <i class="fas fa-ellipsis-v"></i><i class="fas fa-times"></i>
+        </div>
+        <div class="nav-menu">
+          <ul>
+            <li class="nav-item"><a>Testing Navbar</a></li>
+            <li class="nav-item"><a>Other Nav Items</a></li>
+            <li class="nav-item">
+              <a class="logout" onclick="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- main content -->
     <div class="main-content">
-      <div class="conversation"></div>
+      <div class="container">
+        <div class="conversation"></div>
+      </div>
     </div>
 
     <div class="send-message">
-      <input
-        type="text"
-        name="message"
-        id="message"
-        placeholder="Type a message..."
-      /><br />
-      <button class="send" onclick="sendMessage()">
-        <i class="far fa-paper-plane"></i>
-      </button>
+      <div class="container flex flex-justify-center">
+        <input
+          class="flex-grow"
+          type="text"
+          name="message"
+          id="message"
+          placeholder="Type a message..."
+        /><br />
+        <button class="send" onclick="sendMessage()">
+          <i class="far fa-paper-plane"></i>
+        </button>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>

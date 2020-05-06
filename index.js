@@ -9,21 +9,26 @@ const userService = require("./user-service");
 
 app.use(express.static(ANGULAR_APP_PATH));
 
+// listen
 server.listen(PORT, () => {
   console.log(`Server Started and Running on PORT: ${PORT}`);
 });
 
+// get req
 app.get("/", (req, res) => {
   var options = { root: path.join(__dirname, ANGULAR_APP_PATH) };
   res.sendFile("index.html", options);
 });
 
+// on connection
 io.on("connection", (socket) => {
   // new user connects
   userService.incUserCount();
-
   // broadcast message
-  socket.on("broadcast", (data) => {
+  socket.on("broadcast", broascast);
+
+  // broadcast function
+  function broascast(data) {
     // add time to data
     data.time = new Date();
     if (data.type !== "NEW CONNECTION")
@@ -75,5 +80,5 @@ io.on("connection", (socket) => {
       // broadcast others
       socket.broadcast.emit("user disconnected", data);
     }
-  });
+  }
 });

@@ -25,10 +25,10 @@ io.on("connection", (socket) => {
   // new user connects
   userService.incUserCount();
   // broadcast message
-  socket.on("broadcast", broascast);
+  socket.on("broadcast", broadcast);
 
   // broadcast function
-  function broascast(data) {
+  function broadcast(data) {
     // add time to data
     data.time = new Date();
     if (data.type !== "NEW CONNECTION")
